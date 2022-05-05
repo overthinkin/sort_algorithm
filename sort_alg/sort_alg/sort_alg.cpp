@@ -59,7 +59,7 @@ int list[max];
 		SWAP(list[left], list[high], temp);
 		return high;
 	}
-	void quick_sort(int list[], int left, int right) {
+	void quick_sort(int list[], int left, int right) { //Äü Á¤·Ä
 		if (left < right) {
 			int q = partition(list, left, right);
 			quick_sort(list, left, q - 1);
@@ -99,28 +99,17 @@ int list[max];
 	int main(void) {
 		float gap;
 		time_t startTime = 0, endTime = 0;
-		int n=20;
-		make_worst(list, n);
-		startTime = clock();
-		bubble_sort(list, n);
-		endTime = clock();
-		gap = (float)(endTime - startTime) / (CLOCKS_PER_SEC);
-		printf("2ÀÇ %d°ÅµìÁ¦°ö Á¤·Ä ½Ã°£: %f ÃÊ\n", n, gap);
 
-		//for (int i = 5; i < 21; i++) {
-			//make_best(list, i);
-			//int k = (int)(pow(2.0, (float)i));
-			//startTime = clock();
-			//bubble_sort(list, i);
-			//endTime = clock();
-			//gap = (float)(endTime - startTime) / (CLOCKS_PER_SEC);
-			//printf("2ÀÇ %d°ÅµìÁ¦°ö Á¤·Ä ½Ã°£: %f ÃÊ\n", i, gap);
-		//}
 
-		//for (int i = 0; i < 36; i++) {
-			//printf("%d ", list[i]);
-		//}
-
+		for (int i = 5; i < 21; i++) {
+			make_best(list, i);
+			int k = (int)(pow(2.0, (float)i));
+			startTime = clock();
+			bubble_sort(list, i);
+			endTime = clock();
+			gap = (float)(endTime - startTime) / (CLOCKS_PER_SEC);
+			printf("2ÀÇ %d°ÅµìÁ¦°ö Á¤·Ä ½Ã°£: %f ÃÊ\n", i, gap);
+		}
 
 		return 0;
 	}
